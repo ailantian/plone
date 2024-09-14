@@ -58,7 +58,7 @@ this is plone5 configurations for zodb
 
     /opt/plone52/zinstance/parts/instance/etc/zope.conf
 
-    </environment>
+
     <zodb_db main>
         # Main database
         cache-size 30000
