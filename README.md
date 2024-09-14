@@ -1,5 +1,5 @@
 # plone
-plone tips
+plone tips \s
 As there is not too much document describes how to upgrade plone to latest 6 with classic UI.
 And there is no detailed document about the plone architecture. so when we upgrade plone, you will have different problems.
 Plone 6 introduced new frontend which based on javascript(react), but we don't actually want to introduce too much components to plone
@@ -10,42 +10,46 @@ Python
 Zope
 Zodb
 
-1: upgrade your os
+upgrade your os
+---------------
 for Ubuntu, I was on a really old 20.04.6, the latest one is 24.04, but as latest Ubuntu may still have problem, Ubuntu 22.04 has already provided python 3.10 which we required. so use 22.04.
 
-apt-get update
-apt-get dist-upgrade
-do-release-upgrade
-reboot
+apt-get update \s
+apt-get dist-upgrade \s
+do-release-upgrade \s
+reboot \s
 
-2:refer to the link to install classic UI by script ( ALERT, it uses zeoclient and zeoserver)
+Install classic UI by script
+----------------
+( ALERT, it uses zeoclient and zeoserver)
+refer to this link
 https://community.plone.org/t/what-is-the-best-way-install-a-plone-instance/16225/32?page=2
 please refer to my script to install plone 6.0.12, zope version changed. keep in mind to set the password and database name
 as the same as your original old plone configuration. for plone5
-/opt/plone52/zinstance/README.html
-/opt/plone52/zinstance/adminPassword.txt
-/opt/plone52/zinstance/parts/instance/inituser
+* /opt/plone52/zinstance/README.html
+* /opt/plone52/zinstance/adminPassword.txt
+* /opt/plone52/zinstance/parts/instance/inituser
 
-plone 6->zope->zeoclient->zeoserver
+plone 6->zope->zeoclient->zeoserver\s
 
-zeoclient and zeoserver are components of zodb which is the database. so if you use zeoclient,zeoserver
+zeoclient and zeoserver are components of zodb which is the database. so if you use zeoclient,zeoserver\s
 
-zeoserver configuration here [zeoserver] is your zeoserver instance name which you set in the script
+zeoserver configuration here [zeoserver] is your zeoserver instance name which you set in the script\s
 Plone-6.0.12/zeoserver/etc/zeo.conf
 
-zope configuration for databases
+zope configuration for databases\s
 Plone-6.0.12/zinstance/etc/zope.conf
 
-zope configuration for wsgi, (web server,default 0.0.0.0:8080)
+zope configuration for wsgi, (web server,default 0.0.0.0:8080)\s
 Plone-6.0.12/zinstance/etc/zope.ini
 
-here is the problem, on plone5 which we installed which standalone installer doesn't use zeoserver and zeoclient.
+here is the problem, on plone5 which we installed which standalone installer doesn't use zeoserver and zeoclient.\s
 plone5 ->zope-> zodb
 
-so after the installation, we should configure plone6 use the same architecture with plone 5, which call zodb without zeoclient.
-may be you can configure in cookiecutter to disable zeoserver directly.
+so after the installation, we should configure plone6 use the same architecture with plone 5, which call zodb without zeoclient.\s
+may be you can configure in cookiecutter to disable zeoserver directly.\s
 
-this is plone5 configurations for zodb
+this is plone5 configurations for zodb\s
 
 </environment>
 <zodb_db main>
