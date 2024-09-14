@@ -36,15 +36,19 @@ plone 6->zope->zeoclient->zeoserver
 zeoclient and zeoserver are components of zodb which is the database. so if you use zeoclient,zeoserver  
 
 zeoserver configuration here [zeoserver] is your zeoserver instance name which you set in the script  
+
     Plone-6.0.12/zeoserver/etc/zeo.conf
 
 zope configuration for databases  
+
     Plone-6.0.12/zinstance/etc/zope.conf
 
 zope configuration for wsgi, (web server,default 0.0.0.0:8080)  
+
     Plone-6.0.12/zinstance/etc/zope.ini
 
 here is the problem, on plone5 which we installed which standalone installer doesn't use zeoserver and zeoclient.  
+
     plone5 ->zope-> zodb
 
 so after the installation, we should configure plone6 use the same architecture with plone 5, which call zodb without zeoclient.  
