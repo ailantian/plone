@@ -26,6 +26,7 @@ refer to this link
 https://community.plone.org/t/what-is-the-best-way-install-a-plone-instance/16225/32?page=2  
 please refer to my script to install plone 6.0.12, zope version changed. keep in mind to set the password and database name  
 as the same as your original old plone configuration. for plone5  
+
     /opt/plone52/zinstance/README.html
     /opt/plone52/zinstance/adminPassword.txt
     /opt/plone52/zinstance/parts/instance/inituser
