@@ -51,7 +51,7 @@ here is the problem, on plone5 which we installed which standalone installer doe
 
     plone5 ->zope-> zodb
 
-so after the installation, we should configure plone6 use the same architecture with plone 5, which call zodb without zeoclient.  
+so after the installation, we should configure plone6 use the same architecture with plone 5, which call zodb without zeoclient, and this plone system was upgrade from very old plone.  
 may be you can configure in cookiecutter to disable zeoserver directly.  
 
 this is plone5 configurations for zodb  
