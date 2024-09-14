@@ -82,6 +82,9 @@ this is plone5 configurations for zodb
     </zodb_db>
 
 this is plone6 zope configurations for zodb should be, plone6 dropped temporarystorage  
+
+Remove zoeclient to keep the same architecture as plone5 which you installed with standalone installer.
+
     Plone-6.0.12/zinstance/etc/zope.conf
 
     <zodb_db main>
