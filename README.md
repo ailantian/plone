@@ -51,52 +51,54 @@ may be you can configure in cookiecutter to disable zeoserver directly.\s
 
 this is plone5 configurations for zodb\s
 
-</environment>
-<zodb_db main>
-    # Main database
-    cache-size 30000
-    # Blob-enabled FileStorage database
-    <blobstorage>
-      blob-dir /opt/plone52/zinstance/var/blobstorage
-      # FileStorage database
-      <filestorage>
-        path /opt/plone52/zinstance/var/filestorage/Data.fs
-      </filestorage>
-    </blobstorage>
-    mount-point /
-</zodb_db>
-<zodb_db temporary>
-    # Temporary storage database (for sessions)
-    <temporarystorage>
-      name temporary storage for sessioning
-    </temporarystorage>
-    mount-point /temp_folder
-    container-class Products.TemporaryFolder.TemporaryContainer
-</zodb_db>
+    </environment>
+    <zodb_db main>
+        # Main database
+        cache-size 30000
+        # Blob-enabled FileStorage database
+        <blobstorage>
+          blob-dir /opt/plone52/zinstance/var/blobstorage
+          # FileStorage database
+          <filestorage>
+            path /opt/plone52/zinstance/var/filestorage/Data.fs
+          </filestorage>
+        </blobstorage>
+        mount-point /
+    </zodb_db>
+    <zodb_db temporary>
+        # Temporary storage database (for sessions)
+        <temporarystorage>
+          name temporary storage for sessioning
+        </temporarystorage>
+        mount-point /temp_folder
+        container-class Products.TemporaryFolder.TemporaryContainer
+    </zodb_db>
 
 this is plone6 zope configurations for zodb should be, plone6 dropped temporarystorage
 Plone-6.0.12/zinstance/etc/zope.conf
 
-<zodb_db main>
-    # Main database
-    cache-size 30000
-    # Blob-enabled FileStorage database
-    <blobstorage>
-      blob-dir $INSTANCENAME/zinstance/var/blobstorage
-      # FileStorage database
-      <filestorage>
-        path $INSTANCENAME/zinstance/var/filestorage/Data.fs
-      </filestorage>
-    </blobstorage>
-    mount-point /
-</zodb_db>
+    <zodb_db main>
+        # Main database
+        cache-size 30000
+        # Blob-enabled FileStorage database
+        <blobstorage>
+          blob-dir $INSTANCENAME/zinstance/var/blobstorage
+          # FileStorage database
+          <filestorage>
+            path $INSTANCENAME/zinstance/var/filestorage/Data.fs
+          </filestorage>
+        </blobstorage>
+        mount-point /
+    </zodb_db>
 
-3:migrate database
+migrate database
+-----
 copy your plone5 database to plone6 working directory, the last . is your 
 
 cp -ra /opt/plone52/zinstance/var/blobstorage /opt/plone52/zinstance/var/filestorage/ Plone-6.0.12/zinstance/var/
 
-4: start your zope instance.
+start your zope instance
+---
 
 Plone-6.0.12/runwsgi -dv zinstance/etc/zope.ini &
 
@@ -104,7 +106,7 @@ then try to access with localhost:8080
 
 
 Tips: 
-1: my problem is that plone missing my blob files so some images are missing. quite slow, and creating new site works well,
+* my problem is that plone missing my blob files so some images are missing. quite slow, and creating new site works well,
 it is possible to move to zeoclient.
 but it takes server hours to make it work as original standalone zodb mode for plone. as my site has already lots of data. 
 
@@ -114,7 +116,7 @@ plone5 configurations for zope
 
 /opt/plone52/zinstance/parts/instance/etc/
 
-2:my plone 5.2.14 was upgraded from plone 4. so the python has already changed to python3. the zodb has already updated
+* my plone 5.2.14 was upgraded from plone 4. so the python has already changed to python3. the zodb has already updated
 refer to this link with zodbupdate/zodbverify
 https://6.docs.plone.org/backend/upgrading/version-specific-migration/upgrade-zodb-to-python3.html
 
